@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, JSX } from "react";
-import { ArrowUp, Moon, Sun, Circle} from "lucide-react";
+import { ArrowUp, Moon, Sun, Circle, FileDown} from "lucide-react";
 import { motion} from "framer-motion";
 import {
   FaReact,
@@ -32,7 +32,8 @@ interface Project {
   description: string;
   tools: string[];
   source: string;
-  status: "Development" | "Live" | "Beta";
+  status: "Development" | "Live" | "Test";
+  code: boolean;
 }
 // Definição de tipos para experiência
 interface Experience {
@@ -69,46 +70,56 @@ export default function Portfolio() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "To-Do App",
-      type: "FULLSTACK",
+      title: "Site Licença Ambiental",
+      type: "WEB",
       description:
-        "Aplicativo de lista de tarefas com CRUD e autenticação básica.",
-      tools: ["React", "Node.js", "Express", "MongoDB"],
+        "Projeto realizado para interface e cálculo de licenças ambientais. Desenvolvido para aplicação para projeto de mestrado",
+      tools: ["HTML", "CSS", "PHP", "JavaScript", "Bootstrap"],
       source: "https://github.com/seuusuario/todo-app",
-      status: "Development",
+      status: "Live",
+      code: false,
     },
     {
       id: 2,
-      title: "Blog com Autenticação",
-      type: "FULLSTACK",
-      description: "Blog simples com registro, login e CRUD de posts.",
-      tools: ["Next.js", "Express", "PostgreSQL"],
-      source: "https://github.com/seuusuario/blog-app",
+      title: "Compilador Simples",
+      type: "BACK-END",
+      description: "Compilador básico para uma linguagem fictícia. Possui analisador léxico, sintático e semântico",
+      tools: ["Python"],
+      source: "https://github.com/henrique0miranda/rubrum",
       status: "Live",
+      code: true,
     },
     {
       id: 3,
-      title: "Dashboard de Dados",
+      title: "Portifólio Pessoal",
       type: "WEB",
-      description: "Dashboard responsivo com gráficos dinâmicos.",
-      tools: ["React", "TailwindCSS", "Chart.js"],
+      description: "Dashboard pessoal para exibição de projetos, habilidades e experiência",
+      tools: ["React", "TailwindCSS", "Next.js"],
       source: "https://github.com/seuusuario/dashboard",
-      status: "Beta",
+      status: "Test",
+      code: true,
+    },
+    {
+      id: 4,
+      title: "App Aluguel de Imóveis",
+      type: "MOBILE",
+      description: "Aplicativo para gerenciamento de aluguel de imóveis. Foco em pequenas cidades e estudantes",
+      tools: ["Flutter", "Dart", "Firebase"],
+      source: "https://github.com/seuusuario/aluguel-imoveis",
+      status: "Development",
+      code: false, 
     },
   ];
   // Dados das experiências
   const experiences: Experience[] = [
-    { year: "2025", title: "Desenvolvedor Full Stack", 
-      description: "Atuação em projetos de alto impacto utilizando React, Next.js, Node e TailwindCSS.", 
-      icon: <Circle className="w-6 h-6 text-orange-500" /> },
-    { year: "2023", 
-      title: "Graduação em Ciência da Computação", 
-      description: "Conclusão do curso com foco em desenvolvimento web, banco de dados e algoritmos.", 
+    { year: "2020", 
+      title: "Graduação em Engenharia da Computação", 
+      description: "Inicio do curso no Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais - IFMG - Campus Bambuí", 
       icon: <Circle className="w-6 h-6 text-orange-500" /> },
     { 
-      year: "2022", 
-      title: "Certificação em React Avançado", 
-      description: "Formação completa em React e Next.js com integração de APIs e otimização de performance.", 
+      year: "2015-2017", 
+      title: "Técnico em Informática", 
+      description: "Formação técnica com ênfase em programação, redes e manutenção de computadores. Realizado no Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais - IFMG - Campus Bambuí", 
       icon: <Circle className="w-6 h-6 text-orange-500" /> },
   ];
   // Lista de skills
@@ -160,7 +171,7 @@ export default function Portfolio() {
     switch (status) {
       case "Development": return <span className={`${base} bg-yellow-400`} />;
       case "Live": return <span className={`${base} bg-green-400`} />;
-      case "Beta": return <span className={`${base} bg-purple-400`} />;
+      case "Test": return <span className={`${base} bg-purple-400`} />;
       }
     };
 
@@ -327,13 +338,13 @@ export default function Portfolio() {
 
 
       {/* Home */}
-      <section id="home" className="h-screen flex max-w-screen items-center justify-center px-6 pt-15 pb-20 overflow-hidden"
+      <section id="home" className="h-screen flex max-w-screen items-center justify-center px-6 pt-15 pb-20 overflow-hidden "
         style={{
           background: darkMode
             ? "linear-gradient(to right, #1E2939 50%, #FF6900 50%) "
             : "linear-gradient(to right, #F8F8F8 50%, #FF6900 50%)",
         }}>
-        <div className="grid grid-cols-2 mr-5 items-center">
+        <div className="grid grid-cols-2">
           <div className=" mt-5 mx-auto ">
             <h3 className="text-4xl md:text-5xl font-extrabold mr-5 z-10">
               Henrique Araújo Miranda
@@ -345,27 +356,27 @@ export default function Portfolio() {
             <div className="flex mb-6">
               <dl className={`${darkMode ? "text-white" : "text-gray-900 "
             } grid grid-cols-2 mt-6`}>
-                <dt className="mb-2 text-3xl md:text-4xl font-extrabold">0{projects.length}</dt>
-                <dt className="mb-2 text-3xl md:text-4xl font-extrabold">{new Date().getFullYear() - 2017} anos</dt>
+                <dt className="mb-2 text-2xl md:text-4xl font-extrabold">0{projects.length}</dt>
+                <dt className="mb-2 text-2xl md:text-4xl font-extrabold">{new Date().getFullYear() - 2023} anos</dt>
                 <dd className={`${darkMode ? "text-gray-400" : "text-gray-500"
                   } font-light`}>Projetos</dd>
                 <dd className={`${darkMode ? "text-gray-400" : "text-gray-500"
                     } font-light`}>Experiência</dd>
               </dl>
             </div>
-            
-            <div className="flex gap-4 ">
+
+            <div className="md:flex sm:grid sm:grid-cols-2 gap-4 ">
               <button className="mt-3 px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition">
-                  LinkedIn
+                  <a href="https://www.linkedin.com/in/henrique-miranda--" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </button>
               <button className="mt-3 px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition" >
-                Github
+                <a href="https://github.com/henrique0miranda" target="_blank" rel="noopener noreferrer">Github</a>
               </button>
             </div>
           </div>
 
-          <div className="flex justify-end-safe items-center md:justify-center hover:scale-105 transition-transform">
-            <img src="https://avatars.githubusercontent.com/u/1?v=4" className="md:w-80 md:h-80 w-60 h-60 shadow-2xl z-10" />
+          <div className="flex justify-center md:hover:scale-105 transition-transform">
+            <img src="profile.jpg" className="md:w-80 md:h-80 w-60 h-60 shadow-2xl z-10" />
           </div>   
 
         </div>
@@ -387,16 +398,25 @@ export default function Portfolio() {
             </h3>
             <p className={`${darkMode ? "text-gray-300" : "text-gray-600 "
               } text-lg md:text-xl max-w-2xl relative z-10`}>
-              Estudante de Engenharia de Computação com experiência em desenvolvimento web. Construo aplicações modernas e escaláveis usando ReactJS, Next.js, Python e PostgreSQL.
+              Estudante de Engenharia de Computação com experiência em desenvolvimento web. Construo aplicações modernas e escaláveis
             </p>
             <p className={`${darkMode ? "text-gray-300" : "text-gray-600 "
               } text-lg md:text-xl max-w-2xl mt-4 relative z-10`}>
-              Atuo como desenvolvedor fullstack integrando APIs REST e colaborando com Git/GitHub, sempre priorizando performance e experiência do usuário.
+              Atuo como desenvolvedor full stack com foco em aplicações web e mobile. Tenho experiência em React, Node.js, e Python 
+            </p>
+            <p className={`${darkMode ? "text-gray-300" : "text-gray-600 "
+              } text-lg md:text-xl max-w-2xl mt-4 relative z-10`}>
+              Busco constantemente aprimorar minhas habilidades e acompanhar as melhores práticas do mercado, aplicando conceitos de performance, escalabilidade e experiência do usuário em cada projeto
             </p>
             <div className="flex gap-4 ">
-              <button className="mt-8 mb-4 px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition">
+              <a href="Curriculo_Henrique_Miranda.pdf"
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="flex gap-2 mt-8 mb-4 px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition">
+                  
                   Currículo
-              </button>
+                  <FileDown className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
@@ -484,8 +504,9 @@ export default function Portfolio() {
                     {proj.tools.join(", ")}
                   </p>
                   <div className="flex gap-4 mt-4 justify-between items-center">
-                    <a href={proj.source} target="_blank" rel="noopener noreferrer" className={`${darkMode ? "bg-gray-700" : "bg-gray-200"
-                  }  px-3 py-1 text-sm  rounded-md hover:bg-orange-600 hover:text-white transition`}>
+                    <a href={proj.source} target="_blank" rel="noopener noreferrer" className={`${darkMode ? "bg-gray-700" : "bg-gray-200"} 
+                    } ${proj.code ? "hover:bg-orange-600 px-3 py-1" : "bg-transparent cursor-pointer pointer-events-none"
+                    }   text-sm  rounded-md hover:text-white transition`}>
                       Código
                     </a>
                   </div>
@@ -551,13 +572,13 @@ export default function Portfolio() {
           <h3 className="text-2xl font-bold mb-4">Entre em Contato</h3>
           <p className="mb-6">Me envie um email ou conecte-se nas redes sociais</p>
           <div className="flex justify-center gap-6 text-3xl">
-            <a href="mailto:seuemail@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
+            <a href="mailto:rique.miranda19@gmail.com"  className="hover:text-orange-500 transition">
               <FaGoogle />
             </a>
-            <a href="https://www.linkedin.com/in/seulinkedin" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
+            <a href="https://www.linkedin.com/in/henrique-miranda--" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
               <FaLinkedin />
             </a>
-            <a href="https://github.com/seuusuario" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
+            <a href="https://github.com/henrique0miranda" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
               <FaGithub />
             </a>
           </div>
