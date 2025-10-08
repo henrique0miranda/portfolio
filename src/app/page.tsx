@@ -95,7 +95,7 @@ export default function Portfolio() {
       type: "WEB",
       description: "Dashboard pessoal para exibição de projetos, habilidades e experiência",
       tools: ["React", "TailwindCSS", "Next.js"],
-      source: "https://github.com/seuusuario/dashboard",
+      source: "https://github.com/henrique0miranda/portfolio",
       status: "Test",
       code: true,
     },
@@ -105,7 +105,7 @@ export default function Portfolio() {
       type: "MOBILE",
       description: "Aplicativo para gerenciamento de aluguel de imóveis. Foco em pequenas cidades e estudantes",
       tools: ["Flutter", "Dart", "Firebase"],
-      source: "https://github.com/seuusuario/aluguel-imoveis",
+      source: "",
       status: "Development",
       code: false, 
     },
@@ -346,7 +346,7 @@ export default function Portfolio() {
         }}>
         <div className="grid grid-cols-2">
           <div className=" mt-5 mx-auto ">
-            <h3 className="text-4xl md:text-5xl font-extrabold mr-5 z-10">
+            <h3 className="text-4xl md:text-6xl font-extrabold mr-5 z-10">
               Henrique Araújo Miranda
             </h3>
             <p className={`${darkMode ? "text-gray-300" : "text-gray-600 "
@@ -359,9 +359,9 @@ export default function Portfolio() {
                 <dt className="mb-2 text-2xl md:text-4xl font-extrabold">0{projects.length}</dt>
                 <dt className="mb-2 text-2xl md:text-4xl font-extrabold">{new Date().getFullYear() - 2023} anos</dt>
                 <dd className={`${darkMode ? "text-gray-400" : "text-gray-500"
-                  } font-light`}>Projetos</dd>
+                  } font-light text-xs md:text-base`}>Projetos</dd>
                 <dd className={`${darkMode ? "text-gray-400" : "text-gray-500"
-                    } font-light`}>Experiência</dd>
+                    } font-light text-xs md:text-base`}>Experiência</dd>
               </dl>
             </div>
 
@@ -376,7 +376,7 @@ export default function Portfolio() {
           </div>
 
           <div className="flex justify-center md:hover:scale-105 transition-transform">
-            <img src="profile.jpg" className="md:w-80 md:h-80 w-60 h-60 shadow-2xl z-10" />
+            <img src="profile.jpg" className="md:w-80 md:h-80 w-50 h-50 shadow-2xl z-10" />
           </div>   
 
         </div>
