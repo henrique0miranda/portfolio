@@ -346,7 +346,7 @@ export default function Portfolio() {
         }}>
         <div className="grid grid-cols-2">
           <div className=" mt-5 mx-auto ">
-            <h3 className="text-4xl md:text-6xl font-extrabold mr-5 z-10">
+            <h3 className="text-3xl md:text-6xl font-extrabold z-10">
               Henrique Araújo Miranda
             </h3>
             <p className={`${darkMode ? "text-gray-300" : "text-gray-600 "
@@ -356,8 +356,8 @@ export default function Portfolio() {
             <div className="flex mb-6">
               <dl className={`${darkMode ? "text-white" : "text-gray-900 "
             } grid grid-cols-2 mt-6`}>
-                <dt className="mb-2 text-2xl md:text-4xl font-extrabold">0{projects.length}</dt>
-                <dt className="mb-2 text-2xl md:text-4xl font-extrabold">{new Date().getFullYear() - 2023} anos</dt>
+                <dt className="mb-2 text-1xl md:text-4xl font-extrabold">0{projects.length}</dt>
+                <dt className="mb-2 text-1xl md:text-4xl font-extrabold">{new Date().getFullYear() - 2023} anos</dt>
                 <dd className={`${darkMode ? "text-gray-400" : "text-gray-500"
                   } font-light text-xs md:text-base`}>Projetos</dd>
                 <dd className={`${darkMode ? "text-gray-400" : "text-gray-500"
@@ -375,8 +375,8 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="flex justify-center md:hover:scale-105 transition-transform">
-            <img src="profile.jpg" className="md:w-80 md:h-80 w-50 h-50 shadow-2xl z-10" />
+          <div className="flex justify-center md:hover:scale-105 transition-transform items-center">
+            <img src="profile.jpg" className="md:w-80 md:h-80 w-50 h-47 shadow-2xl z-10" />
           </div>   
 
         </div>
