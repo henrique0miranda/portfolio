@@ -139,13 +139,7 @@ export default function Portfolio() {
     "Docker",
   ];
   // Efeito para aplicar tema dark/light
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
+
 
   // Efeito para alternar tema
   useEffect(() => {
